@@ -164,7 +164,7 @@
     $sql = "DELETE FROM ".$tabla." WHERE ".$condicion.";";
     return $this->ejecutarQuery($sql);
   }
-  //Función para consultar información en base de datos
+   //Función para consultar información en base de datos
   function consultar($tablas, $campos, $condicion = ""){
     $sql = "SELECT ";
     $result = array_keys($campos);
@@ -194,7 +194,33 @@
   }
  
 
+
+
+class Usuarios //Crear objeto Usuario
+{
+  public $nombreTabla = 'usuarios'; //Definir nombre de la tabla
+  /*Matriz con las columnas que componen la tabla usuarios*/
+  public $data = ['email' => 'varchar(50) NOT NULL PRIMARY KEY',
+  'nombre' => 'varchar(50) NOT NULL',
+  'password' => 'varchar(255) NOT NULL',
+  'fecha_nacimiento' => 'date NOT NULL'];
+
 }
+
+class Eventos
+{
+  public $nombreTabla = 'eventos'; //Definir nombre de la tabla
+  /*Matriz con las columnas que componen la tabla eventos*/
+  public $data = ['id' => 'INT NOT NULL PRIMARY KEY AUTO_INCREMENT',
+  'titulo'=> 'VARCHAR(50) NOT NULL',
+  'fecha_inicio'=> 'date NOT NULL',
+  'hora_inicio' => 'varchar(20)',
+  'fecha_finalizacion'=> 'varchar(20)',
+  'hora_finalizacion'=> 'varchar(20)',
+  'allday'=> 'tinyint(1) NOT NULL',
+  'fk_usuarios'=>'varchar(50) NOT NULL'];
+}
+
 
 
 
