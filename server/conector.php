@@ -52,7 +52,32 @@
 		}
 
 	}
-	
+
+	function userSession(){
+		if(isset($_SESSION['email'])){
+			$response['msg'] = $_SESSION['email'];
+		}else{
+			$response['msg'] = '';
+		}
+		return json_encode($response);
+	}
+
+	function verifyUsers(){
+		$sql = 'SELECT COUNT(email) FROM usuario';
+		$totalUsers = $this->ejecutarQuery($sql);
+		while ($row = $totalUsers->fetch_assoc()){
+			return $row['COUNT(email)'];
+		}
+	}
+
+	function getConexion(){
+		return $this->$conexion;
+	}
+	function ejecutarQuery($query){
+		return $this->conexion->query($query);
+	}
+	function crearTabla($nombre_tbl, $campos){}
+
 
 
 
