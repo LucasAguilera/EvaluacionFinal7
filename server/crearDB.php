@@ -1,5 +1,5 @@
 <?php 
-	require('./conector.php');
+  require('./conector.php');
 $con = new ConectorBD();
 if(  $con->initConexion($con->database) == 1049){ //Verificar si no existe la base de adtos al comparar que la respuesta del servidor sea iguale a 1049
   $conexion['msg'] = "Creando base de datos ".$con->database;
@@ -21,3 +21,7 @@ if(  $con->initConexion($con->database) == 1049){ //Verificar si no existe la ba
     $conexion['msg'] = "Base de datos <b>".$con->database."</b> encontrada"; //Mensaje de descripción de acción
 }
  echo json_encode($conexion);
+
+
+
+ ?>
